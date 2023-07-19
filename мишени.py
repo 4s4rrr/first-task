@@ -17,14 +17,11 @@ for i in f:
         elif logs[j] <= 50:
             dop_list.append(logs[j]) #добавляем в новый список, чтобы далее проверить отсутствие повторений
             logs[j] = 'green_zone'
-        elif logs[j] <= 90:
+        elif logs[j] <= 100:
             dop_list.append(logs[j])  #добавляем в новый список, чтобы далее проверить отсутствие повторений
-            logs[j] = 'grey_zone' 
-        else:
-            logs[j] = logs[j] #для наглядности, т.к. это непопадание по мишени
+            logs[j] = 'grey_zone'
     if not (any(x == 'apple' for x in logs)): #проверяем, что Саша не попал по яблочку
         if len(dop_list) == len(set(dop_list)): #проверяем отсутствие повторений с помощью множества
             if check_podryad(logs):
                 count += 1
 print(count)
-        
